@@ -34,9 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Redirect based on role
             if ($user['role'] == 'admin') {
-                header("Location: admin_dashboard.php");
+                header("Location: dashboard.php");
             } else {
-                header("Location: client_dashboard.php");
+                header("Location: CL.php");
             }
             exit(); // Ensure no further code is executed after redirection
         } else {
@@ -83,12 +83,19 @@ if (isset($_GET['logout'])) {
                                     <?php endif; ?>
                                     <form method="post">
                                         <div class="form-floating mb-3">
+                                        <h6>Email</h6>
                                             <input class="form-control text-dark" id="inputEmail" type="email" name="email" placeholder="name@example.com" required />
-                                            <label for="inputEmail">Email address</label>
+                                            <label for="inputEmail"></label>
                                         </div>
                                         <div class="form-floating mb-3">
+                                        <h6>Password</h6>
                                             <input class="form-control text-dark" id="inputPassword" type="password" name="password" placeholder="Password" required />
-                                            <label for="inputPassword">Password</label>
+                                            <label for="inputPassword"></label>
+                                            <!-- Show password toggle -->
+                                            <div class="form-check mt-2">
+                                                <input class="form-check-input" type="checkbox" id="showPassword">
+                                                <label class="form-check-label" for="showPassword">Show Password</label>
+                                            </div>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <button type="submit" class="btn btn-success">Login</button>
@@ -102,5 +109,17 @@ if (isset($_GET['logout'])) {
             </main>
         </div>
     </div>
+
+    <script>
+        // Show password toggle functionality
+        document.getElementById('showPassword').addEventListener('change', function() {
+            var passwordField = document.getElementById('inputPassword');
+            if (this.checked) {
+                passwordField.type = 'text'; // Show password
+            } else {
+                passwordField.type = 'password'; // Hide password
+            }
+        });
+    </script>
 </body>
 </html>

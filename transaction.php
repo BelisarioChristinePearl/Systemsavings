@@ -1,240 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Employee</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">CLIENT</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-success" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end bg-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item text-muted" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item text-muted" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item text-muted" href="login.php">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="CL.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link" href="deposit.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Deposit
+                            <a class="nav-link" href="withdrawal.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Withdrawal
+                             <a class="nav-link" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Transaction History
+                            </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Loan
+                            </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Chat Support
+                            </a> 
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer bg-dark">
+                        <div class="small">Logged in as:</div>
+                        Start Bootstrap
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content" class="bg-dark" style="--bs-bg-opacity: .95;">
+         <div class="container my-10">
+         <h2 class="mt-4 text-white">History</h2>
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Starter Page - iPortfolio Bootstrap Template</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-
-
-</head>
-<body class="starter-page-page">
-
-    <header id="header" class="header dark-background d-flex flex-column">
-      <i class="header-toggle bi bi-list"></i>
-  
-      <div class="profile-img">
-        <img src="assets/img/profile_pic.png" alt="" class="img-fluid rounded-circle">
-      </div>
-  
-      <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Pandagla, Sodais E.</h1>
-      </a>
-  
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="starter-page.html"><i class="bi bi-person navicon"></i> Home</a></li>
-          <li><a href="deposit.html"><i class="bi bi-bank navicon"></i>Deposit</a></li>
-          <li><a href="withdraw.html"><i class="bi bi-box-arrow-down navicon"></i>Withdraw</a></li>
-          <li><a href="tracker.html"><i class="bi bi-person navicon"></i>Balance Tracking</a></li>
-          <li><a href="trans.html"><i class="bi bi-person navicon"></i>Transaction History </a></li>
-          <li><a href="#overview"><i class="bi bi-person navicon"></i> Overview</a></li>
-        </ul>
-      </nav>
-  
-    </header>
-  
-    <main class="main">
-
-  
-      <!-- Page Title -->
-      <div class="page-title dark-background">
-        <div class="container d-lg-flex justify-content-between align-items-center">
-            <h1 class="mb-10 mb-lg-0">Transaction History</h1>
-          <nav class="breadcrumbs">
-            <ol>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="login.html">logout</a></li>
-            </ol>
-          </nav>
+        <!-- Search bar -->
+        <div class="mb-3">
+            <input type="text" id="searchBar" class="form-control" placeholder="Search transactions by type, description, or amount" oninput="filterTransactions()">
         </div>
-      </div><!-- End Page Title -->
-  
-      <!-- Starter Section Section -->
-      <section id="starter-section" class="starter-section section dark-background">
-       
-        
 
-          <div class="container my-5">
-          
-              <!-- Transaction History Table -->
-              <div class="card mb-4">
-                  <div class="card-header bg-info text-white">Transaction History</div>
-                  <div class="card-body">
-                      <table class="table table-striped">
-                          <thead>
-                              <tr>
-                                  <th>Date</th>
-                                  <th>Transaction ID</th>
-                                  <th>Type</th>
-                                  <th>Amount</th>
-                                  <th>Status</th>
-                              </tr>
-                          </thead>
-                          <tbody id="transactionTable">
-                              <tr>
-                                  <td>2024-10-10</td>
-                                  <td>TXN001</td>
-                                  <td>Deposit</td>
-                                  <td>$500</td>
-                                  <td><span class="badge bg-success">Completed</span></td>
-                              </tr>
-                              <tr>
-                                  <td>2024-09-28</td>
-                                  <td>TXN002</td>
-                                  <td>Withdrawal</td>
-                                  <td>$200</td>
-                                  <td><span class="badge bg-danger">Failed</span></td>
-                              </tr>
-                              <tr>
-                                  <td>2024-09-15</td>
-                                  <td>TXN003</td>
-                                  <td>Deposit</td>
-                                  <td>$700</td>
-                                  <td><span class="badge bg-warning">Pending</span></td>
-                              </tr>
-                              <!-- Add more rows as needed -->
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-          
-              <!-- Savings Chart -->
-              <div class="card">
-                  <div class="card-header bg-info text-white">Savings Progress Chart</div>
-                  <div class="card-body">
-                      <canvas id="savingsChart" height="100"></canvas>
-                  </div>
-              </div>
-          </div>
-          
-          <!-- Bootstrap 5 JavaScript and dependencies -->
-          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-          <script>
-              // Sample data for monthly savings
-              const savingsData = {
-                  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                  datasets: [{
-                      label: 'Monthly Savings ($)',
-                      data: [1000, 1200, 1500, 1800, 2000, 2500, 2300, 2600, 3000, 3200, 3500, 3800],
-                      backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                      borderColor: 'rgba(75, 192, 192, 1)',
-                      borderWidth: 2,
-                      fill: true
-                  }]
-              };
-          
-              const config = {
-                  type: 'line', // Line chart for savings progress
-                  data: savingsData,
-                  options: {
-                      responsive: true,
-                      plugins: {
-                          legend: {
-                              position: 'top',
-                          },
-                          tooltip: {
-                              callbacks: {
-                                  label: function(context) {
-                                      return `Savings: $${context.raw}`;
-                                  }
-                              }
-                          }
-                      },
-                      scales: {
-                          y: {
-                              beginAtZero: true,
-                              title: {
-                                  display: true,
-                                  text: 'Amount ($)'
-                              }
-                          },
-                          x: {
-                              title: {
-                                  display: true,
-                                  text: 'Month'
-                              }
-                          }
-                      }
-                  }
-              };
-          
-              // Render the savings chart
-              const savingsChart = new Chart(
-                  document.getElementById('savingsChart'),
-                  config
-              );
-          </script>
-          
-          
-        
+        <!-- Transaction History Table -->
+        <table class="table table-bordered" id="transactionTable">
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Transaction entries will be added dynamically here -->
+            </tbody>
+        </table>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <script>
+        // Static array to simulate transactions (usually this would come from a server)
+        const transactions = [
+            { id: 'txn001', date: '2023-10-01 12:34:56', type: 'Deposit', amount: 500, description: 'Salary payment' },
+            { id: 'txn002', date: '2023-10-05 09:15:23', type: 'Withdrawal', amount: 200, description: 'ATM Withdrawal' },
+            { id: 'txn003', date: '2023-10-07 14:22:09', type: 'Deposit', amount: 300, description: 'Online sale' },
+            { id: 'txn004', date: '2023-10-10 16:45:11', type: 'Withdrawal', amount: 100, description: 'Shopping purchase' },
+            { id: 'txn005', date: '2023-10-12 11:10:55', type: 'Deposit', amount: 150, description: 'Freelance work' },
+        ];
 
-       
-      </section><!-- /Starter Section Section -->
-  
-    </main>
-  
-    <footer id="footer" class="footer position-relative dark-background">
-  
-      <div class="container">
-      </div>
-  
-    </footer>
-  
-    <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  
-    <!-- Preloader -->
-    <div id="preloader"></div>
-  
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  
-    <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
-  
-  </body>
-  
-  </html>
+        // Function to render the transaction history table
+        function renderTransactions(filteredTransactions) {
+            const tableBody = document.querySelector('#transactionTable tbody');
+            tableBody.innerHTML = '';
+
+            // Loop through the filtered transactions and append rows
+            filteredTransactions.forEach(transaction => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${transaction.id}</td>
+                    <td>${transaction.date}</td>
+                    <td>${transaction.type}</td>
+                    <td>${transaction.amount}</td>
+                    <td>${transaction.description}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to filter transactions based on the search query
+        function filterTransactions() {
+            const searchQuery = document.getElementById('searchBar').value.toLowerCase();
+
+            const filteredTransactions = transactions.filter(transaction => {
+                return (
+                    transaction.type.toLowerCase().includes(searchQuery) ||
+                    transaction.description.toLowerCase().includes(searchQuery) ||
+                    transaction.amount.toString().includes(searchQuery)
+                );
+            });
+
+            renderTransactions(filteredTransactions); // Re-render the table with filtered data
+        }
+
+        // Initial rendering of the transaction table
+        renderTransactions(transactions);
+
+    </script>
+
+    </body>
+</html>

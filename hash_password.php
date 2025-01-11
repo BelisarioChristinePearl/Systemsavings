@@ -1,5 +1,5 @@
 <?php
 // Replace 'YourDesiredPassword' with the actual password you want to hash
-$password = 'Fordapassword'; 
+$password = 'Passwordito1'; 
 echo password_hash($password, PASSWORD_DEFAULT);
 ?>
